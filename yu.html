@@ -45,26 +45,44 @@
             font-size: 14px;
             color:rgb(18, 103, 230);
         }
-         /* 当你的屏幕宽度小于600px时要改变的css */
-          @media only screen and (max-width: 600px) {
-          
+          /* 设置导航栏的搜索框样式 */
+      .topnav input[type="text"] {
+        float: right;
+        padding: 8px;
+        border:2px solid #eee;
+        margin-top: 12px;
+        margin-right: 100px;
+        font-size: 17px;
+        border-radius: 5px;
+      }
+        /* 当显示器小于800px时 */
+      @media (max-width: 800px) {
+        /* 隐藏侧边栏 */
         .cebian {
-            display: none;
+          display: none;
         }
+        /* 改为竖向展示 */
         .neirong {
-            flex-direction: column;
+          flex-direction: column;
         }
-        .shuju {
-            flex-direction: column;
-        }
-        .youqu {
-            margin-left: 8px;
-        }
+        /* 数据区竖向展示 */
         .shujuqu {
-            margin:0 0 8px;
-            flex:auto
+          flex-direction: column;
         }
-    } 
+        /* 右区边距对齐设置为8px */
+        .youqu {
+          margin-left: 8px;
+        }
+        /* 数据块的边距和占距 */
+        .shujukuai {
+          margin: 0 0 8px;
+          flex: auto;
+        }
+        /* 滚动条样式 */
+        .neirong::-webkit-scrollbar {
+          display: none;
+        }
+      }
     </style>
 </head>
 <body class="flex">
@@ -88,15 +106,23 @@
     <!-- 主区域 -->
     <div class="flex1 flex column">
         <!-- 头部栏 -->
-        <div style="height: 60px; z-index: 1;" class="baise yinying"></div>
+        <div style="height: 60px; z-index: 1" class="baise yinying">
+          <div class="topnav">
+            <input
+              type="text"
+              id="i-advanced-search"
+              placeholder="欢迎搜索~~"
+            />
+          </div>
+        </div>
         <!-- 内容区 -->
         <div style="overflow: auto" class="flex1 neirong flex">
             <!-- 左区 -->
         <div style="flex:3" class="flex column mg8">
         <!-- 数据区 -->
-        <div class="flex shuju">
+        <div class="flex shujuqu">
             <!-- 数据块 -->
-            <div style="height: 100px;" class="flex1 shujuqu baise mgr8 yinying">
+            <div style="height: 100px;" class="flex1 shujukuai baise mgr8 yinying">
               QQ:1930008510<br>
               WX:Tloml-YSD <br>
               telephone:13329041402<br>
@@ -163,7 +189,7 @@
         <!-- 消息区 -->
         <div
             style="height: 300px; border-radius: 2px"
-            class="baise mgt8 yinYing"
+            class="baise mgt8 yinying"
           >
             <h2 style="color: rgb(70, 71, 68)" class="biaoti">每日任务清单</h2>
             <li style="color: rgb(70, 71, 68); text-indent: 1em">
